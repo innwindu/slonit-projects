@@ -8,7 +8,11 @@ const firstLetterToUpCase = (str) => {
 console.log(firstLetterToUpCase(str));
 
 const cutString = (str) => {
-  if (str.length > 40) str = str.slice(0, 40);
+  if (str.length < 40) {
+    return str;
+  } else if (str.length > 40) {
+    str = str.slice(0, 40);
+  }
   if (/[(,.!?:;)/\s]/.test(str.slice(-1))) {
     return str.slice(0, 39) + '...';
   } else if (/\w/.test(str.slice(-1))) {
